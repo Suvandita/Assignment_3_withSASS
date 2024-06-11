@@ -1,0 +1,125 @@
+$primary_color:white;
+
+@mixin col_pad_dropbtn{
+    color: rgb(209, 203, 203);
+    padding:10px;
+}
+
+@mixin func_dropdown_content {
+    display: none;
+    position: absolute;
+    list-style: none;
+    margin: -5px;
+    background-color: $primary_color;
+    width: 100px;
+    a{
+        color: black;
+        display: block;
+        padding: 10px 25px;
+        &:hover{
+            background-color: rgb(174, 171, 171);
+        }
+    }
+
+}
+
+*{
+    margin:0;
+    padding: 0;
+    font-family:'Trebuchet MS';
+    a{text-decoration: none;}
+}
+header{
+    .nav-bar{
+        display: flex;          
+        align-items: center;
+    
+        position: fixed;
+        z-index: 1; 
+    
+        gap:50px;
+        padding:20px;
+        width: 100%;
+    
+        background-color: black;
+        color:$primary_color;
+        .nav-link-main{
+            font-size: 1.5em;
+            color: $primary_color;
+        }
+    }
+}
+
+.dropdown{
+    position: relative; 
+    &:hover{
+        .dropdown-content{display: block;}
+        .dropbtn{color: $primary_color;}
+        cursor:pointer;
+    }
+    .dropbtn{
+        @include col_pad_dropbtn();
+    }
+    .dropdown-content{
+        @include func_dropdown_content();
+    }
+
+}
+.click_dropdown {
+    position: relative; 
+
+    &:hover{
+        cursor:pointer;
+    }  
+    .click_dropbtn{
+        @include col_pad_dropbtn();
+    }
+    .click_dropdown-content{
+        @include func_dropdown_content();
+
+    }
+}
+.vid_body{
+    position: relative;
+    video{
+        height:100vh;
+        width:100%;
+        object-fit: fill;
+    }
+    .layer{
+        background-color: rgba(179, 178, 160, 0.3); /*opacity*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .title-text{
+        color: $primary_color;
+        position: absolute;
+        top:40%;
+        left:5%;
+
+        .up_text{
+            margin-bottom: 20px;
+        }
+        .down_text{
+            font-size:4em;
+            margin-top: 20px;
+        }
+    }
+    .btn{
+        position: absolute;
+        bottom:0;
+        left:0;
+    
+        background-color: rgba(7, 7, 7, 0.8);
+        color:$primary_color;
+        border: none;
+        height: 35px;
+        width:100px;
+        
+    }
+}
+
+
